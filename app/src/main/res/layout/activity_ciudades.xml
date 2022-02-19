@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:orientation="vertical"
+    tools:context=".Ciudades">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_margin="16dp"
+        android:text="@string/texto_bienvenida"
+        android:textColor="@color/color_grados"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/bFCP"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/texto_boton_fcp"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/bChetumal"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/texto_boton_cht"
+        android:textColor="@color/black" />
+</LinearLayout>
