@@ -32,4 +32,21 @@
         android:layout_height="wrap_content"
         android:text="@string/texto_boton_cht"
         android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/bTulum"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/texto_boton_tulum"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/bCozumel"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/texto_boton_coz"
+        android:textColor="@color/black" />
+
 </LinearLayout>
