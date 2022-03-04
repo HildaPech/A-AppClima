@@ -48,5 +48,12 @@
         android:layout_height="wrap_content"
         android:text="@string/texto_boton_coz"
         android:textColor="@color/black" />
+    <Button
+        android:id="@+id/bShanghai"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clima de la ciudad de Shanghai"
+        android:textColor="@color/black" />
 
 </LinearLayout>
