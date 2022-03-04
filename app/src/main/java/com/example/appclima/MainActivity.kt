@@ -29,48 +29,16 @@ class MainActivity : AppCompatActivity() {
         val ciudad = intent.getStringExtra("com.example.appclima.ciudades.CIUDAD")
         if(Network.hayRed(this)){
             //ejecutar solicitu HTTP
-            solicitudHTTPVolley("https://api.openweathermap.org/data/2.5/weather?id=3527639&appid=5d4356e8d984b64cadaa8828c16e9b14")
+            solicitudHTTPVolley("https://api.openweathermap.org/data/2.5/weather?id="+ciudad+"&appid=5d4356e8d984b64cadaa8828c16e9b14&units=metric&lang=es")
             //5d4356e8d984b64cadaa8828c16e9b14
             //ciudad de FCP 3527639
 
         }else{
             //mostrar mensaje de error
+            Toast.makeText(this, "No hay red",  Toast.LENGTH_SHORT).show()
         }
 
-        /*
-        val ciudadfcp = Ciudad("Ciudad de Felipe Carrillo Puerto", 27, "Soleado")
-        val ciudadchetumal = Ciudad("Ciudad de Chetumal", 29, "Parcialmente nublado")
-        val ciudadtulum = Ciudad("Ciudad de Tulum", 23, "Soleado")
-        val ciudadcozumel = Ciudad("Ciudad de Cozumel", 28, "Nublado")
 
-        if(ciudad == "Ciudad-FCP"){
-            //mostrar información ciudadfcp
-            tvCiudad?.text = ciudadfcp.nombre
-            tvGrados?.text = ciudadfcp.grados.toString()+"°"
-            tvEstatus?.text = ciudadfcp.estatus
-
-        }else if(ciudad == "Ciudad-Chetumal"){
-            //mostrar información ciudadchetumal
-            tvCiudad?.text = ciudadchetumal.nombre
-            tvGrados?.text = ciudadchetumal.grados.toString()+"°"
-            tvEstatus?.text = ciudadchetumal.estatus
-
-        }else if(ciudad == "Ciudad-Tulum"){
-            //mostrar información ciudadtulum
-            tvCiudad?.text = ciudadtulum.nombre
-            tvGrados?.text = ciudadtulum.grados.toString()+"°"
-            tvEstatus?.text = ciudadtulum.estatus
-
-        }else if(ciudad == "Ciudad-Cozumel"){
-            //mostrar información ciudadcozumel
-            tvCiudad?.text = ciudadcozumel.nombre
-            tvGrados?.text = ciudadcozumel.grados.toString()+"°"
-            tvEstatus?.text = ciudadcozumel.estatus
-
-        }else{
-            Toast.makeText(this, "No se encuentra la información",  Toast.LENGTH_SHORT).show()
-        }
-         */
     }
 
     private fun solicitudHTTPVolley(url:String){
