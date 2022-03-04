@@ -9,6 +9,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
     var tvCiudad:TextView? = null
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val ciudad = intent.getStringExtra("com.example.appclima.ciudades.CIUDAD")
         if(Network.hayRed(this)){
             //ejecutar solicitu HTTP
-            solicitudHTTPVolley("api.openweathermap.org/data/2.5/weather?id={3527639}&appid={5d4356e8d984b64cadaa8828c16e9b14}")
+            solicitudHTTPVolley("https://api.openweathermap.org/data/2.5/weather?id=3527639&appid=5d4356e8d984b64cadaa8828c16e9b14")
             //5d4356e8d984b64cadaa8828c16e9b14
             //ciudad de FCP 3527639
 
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             //mostrar mensaje de error
         }
 
-
+        /*
         val ciudadfcp = Ciudad("Ciudad de Felipe Carrillo Puerto", 27, "Soleado")
         val ciudadchetumal = Ciudad("Ciudad de Chetumal", 29, "Parcialmente nublado")
         val ciudadtulum = Ciudad("Ciudad de Tulum", 23, "Soleado")
@@ -69,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         }else{
             Toast.makeText(this, "No se encuentra la información",  Toast.LENGTH_SHORT).show()
         }
+         */
     }
 
     private fun solicitudHTTPVolley(url:String){
@@ -77,6 +79,13 @@ class MainActivity : AppCompatActivity() {
             response ->
             try {
                 Log.d("solicitudHTTPVolley", response)
+                val gson= Gson()
+                val ciudad = gson.fromJson(response, Ciudad::class.java)
+                tvCiudad?.text = ciudad.name
+                tvGrados?.text = ciudad.main?.temp.toString()+"°"
+                tvEstatus?.text = ciudad.weather?.get(0)?.description
+
+
             }catch (e: Exception){
 
             }
